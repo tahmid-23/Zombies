@@ -1,22 +1,25 @@
 package net.dip;
 
 import net.dip.listeners.EPlayerClick;
+import net.dip.managers.GameManager;
+import net.dip.managers.UserManager;
+import net.dip.objects.guns.Gun;
 import net.dip.objects.guns.Pistol;
-import net.dip.objects.guns.SuperGun;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Main class that handles all startup features
  */
 public class Main extends JavaPlugin {
     private static Main plugin;
-    private static List<SuperGun> guns;
+    private static GameManager gameManager;
+    private static UserManager userManager;
+    private static List<Gun> guns;
 
     @Override
     public void onEnable() {
@@ -68,7 +71,20 @@ public class Main extends JavaPlugin {
         return plugin;
     }
 
-    public static List<SuperGun> getGuns(){
+    public static GameManager getGameManager(){
+        if(gameManager == null)
+            gameManager = new GameManager();
+        return gameManager;
+    }
+
+    public static UserManager getUserManager(){
+        if(userManager == null)
+            userManager = new UserManager();
+        return userManager;
+    }
+
+
+    public static List<Gun> getGuns(){
         return guns;
     }
 }

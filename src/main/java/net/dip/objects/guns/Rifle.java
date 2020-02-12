@@ -2,7 +2,7 @@ package net.dip.objects.guns;
 
 import org.bukkit.Material;
 
-public class Rifle extends SuperGun {
+public class Rifle extends Gun {
 
     private static final String GUN_NAME = "Rifle";
     private static final Material GUN_OBJECT = Material.STONE_HOE;

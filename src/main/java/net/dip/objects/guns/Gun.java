@@ -1,6 +1,7 @@
 package net.dip.objects.guns;
 
 import org.bukkit.Material;
+import org.bukkit.Particle;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Superclass object to represent all guns
  */
-public abstract class SuperGun {
+public abstract class Gun implements IGun {
     private String name;
     private Material item;
 
@@ -19,8 +20,13 @@ public abstract class SuperGun {
     private double fireRate;
     private double reloadRate;
     private String[] description;
+    private Particle beam;
 
-    SuperGun(String name, Material item, double damage, int ammo, int clipAmmo, double fireRate, double reloadRate){
+    Gun(String name, Material item, double damage, int ammo, int clipAmmo, double fireRate, double reloadRate){
+        this(name, item, damage, ammo, clipAmmo, fireRate, reloadRate, null); //TODO
+    }
+
+    Gun(String name, Material item, double damage, int ammo, int clipAmmo, double fireRate, double reloadRate, Particle beam){
         this.name = name;
         this.item = item;
 
@@ -29,21 +35,22 @@ public abstract class SuperGun {
         this.clipAmmo = clipAmmo;
         this.fireRate = fireRate;
         this.reloadRate = reloadRate;
+        this.beam = beam;
     }
 
     /**
-     * Sets the description of the SuperGun.
+     * Sets the description of the Gun.
      *
-     * @param description String list to represent SuperGun description
+     * @param description String list to represent Gun description
      */
     protected void setDescription(String... description){
         this.description = description;
     }
 
     /**
-     * Gets the lore of the SuperGun.
+     * Gets the lore of the Gun.
      *
-     * @return a List of Strings containing the lore of the SuperGun
+     * @return a List of Strings containing the lore of the Gun
      */
     public List<String> getLore() {
         List<String> lore = new ArrayList<String>();
@@ -63,16 +70,10 @@ public abstract class SuperGun {
         return lore;
     }
 
-    /**
-     * Shoot gun.
-     */
     public void shoot(){
         //TODO
     }
 
-    /**
-     * Reload gun.
-     */
     public void reload(){
         //TODO
     }

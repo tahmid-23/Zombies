@@ -1,7 +1,10 @@
 package net.dip.objects;
 
+import net.dip.enums.PerkType;
 import net.dip.enums.UserStatus;
 import org.bukkit.entity.Player;
+
+import static net.dip.utils.Constants.MAX_PERK_COUNT;
 
 /**
  * Represents the player that is in game
@@ -10,6 +13,7 @@ public class User {
     private Player player;
     private int gold;
     private UserStatus status;
+    private PerkType[] perks;
 
     /**
      * Constructor to initialize player defaults
@@ -19,6 +23,7 @@ public class User {
     public User(Player player){
         setPlayer(player);
         setGold(0);
+        perks = new PerkType[MAX_PERK_COUNT];
     }
 
     /**
@@ -73,5 +78,18 @@ public class User {
      */
     public void setStatus(UserStatus userStatus){
         this.status = userStatus;
+    }
+
+    /**
+     * Get the perks of the User. Each index corresponds to the perk slot.
+     *
+     * @return an array of perks that the player has
+     */
+    public PerkType[] getPerks() {
+        return perks;
+    }
+
+    public void setPerks(){
+        //TODO
     }
 }

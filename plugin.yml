@@ -1,0 +1,5 @@
+name: Zombies
+version: 1.0
+description: remake attempmt of Zombies minigame on Hypixel
+main: net.dip.Main
+commands:
