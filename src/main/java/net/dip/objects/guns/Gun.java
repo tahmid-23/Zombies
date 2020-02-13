@@ -2,6 +2,8 @@ package net.dip.objects.guns;
 
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.World;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,32 +12,50 @@ import java.util.List;
 /**
  * Superclass object to represent all guns
  */
-public abstract class Gun implements IGun {
-    private String name;
-    private Material item;
+public abstract class Gun {
 
-    private double damage;
-    private int ammo;
-    private int clipAmmo;
-    private double fireRate;
-    private double reloadRate;
-    private String[] description;
-    private Particle beam;
+    protected final String name;
+    protected final Material item;
+    protected String[] description;
+    protected final Particle particle;
 
-    Gun(String name, Material item, double damage, int ammo, int clipAmmo, double fireRate, double reloadRate){
-        this(name, item, damage, ammo, clipAmmo, fireRate, reloadRate, null); //TODO
-    }
+    protected final int gunRange;
+    protected double damage;
+    protected int ammo;
+    protected int maxAmmo;
+    protected int clipAmmo;
+    protected int maxClipAmmo;
+    protected double fireRate;
+    protected double reloadRate;
 
-    Gun(String name, Material item, double damage, int ammo, int clipAmmo, double fireRate, double reloadRate, Particle beam){
+    /**
+     * Constructor to create a basic gun
+     *
+     * @param name THe name of the gun
+     * @param item The type of item the gun is
+     * @param particle The particle the gun displays when shot
+     * @param gunRange The maximum number of blocks the gun shoots for
+     * @param damage The damage the gun does
+     * @param ammo The ammo the gun currently has
+     * @param maxAmmo The maximum ammo of the gun
+     * @param clipAmmo The clip ammo of the gun
+     * @param maxClipAmmo The maximum clip ammo of hte gun
+     * @param fireRate The fire rate of the gun
+     * @param reloadRate The reload rate of the gun
+     */
+    Gun(String name, Material item, Particle particle, int gunRange, double damage, int ammo, int maxAmmo, int clipAmmo, int maxClipAmmo, double fireRate, double reloadRate){
         this.name = name;
         this.item = item;
 
+        this.gunRange = gunRange;
         this.damage = damage;
         this.ammo = ammo;
+        this.maxAmmo = maxAmmo;
         this.clipAmmo = clipAmmo;
+        this.maxClipAmmo = maxClipAmmo;
         this.fireRate = fireRate;
         this.reloadRate = reloadRate;
-        this.beam = beam;
+        this.particle = particle;
     }
 
     /**
@@ -70,13 +90,9 @@ public abstract class Gun implements IGun {
         return lore;
     }
 
-    public void shoot(){
-        //TODO
-    }
+    public abstract void shoot(Player player);
 
-    public void reload(){
-        //TODO
-    }
+    public abstract void reload();
 
     /* Appropriate accessor methods below */
 
