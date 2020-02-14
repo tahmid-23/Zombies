@@ -1,5 +1,6 @@
 package net.dip;
 
+import net.dip.commands.CommandTest;
 import net.dip.listeners.EPlayerClick;
 import net.dip.managers.GameManager;
 import net.dip.managers.UserManager;
@@ -45,7 +46,7 @@ public class Main extends JavaPlugin {
      * Registers all commands
      */
     private void registerCommands(){
-
+        getCommand("test").setExecutor(new CommandTest());
     }
 
     /**

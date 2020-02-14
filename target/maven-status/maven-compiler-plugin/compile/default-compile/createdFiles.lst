@@ -1,0 +1,16 @@
+net/dip/objects/guns/IGun.class
+net/dip/objects/shops/IShop.class
+net/dip/commands/CommandTest.class
+net/dip/Main.class
+net/dip/managers/UserManager.class
+net/dip/enums/PerkType.class
+net/dip/enums/GameState.class
+net/dip/listeners/EPlayerClick.class
+net/dip/enums/UserStatus.class
+net/dip/objects/guns/Rifle.class
+net/dip/objects/guns/Gun.class
+net/dip/objects/User.class
+net/dip/managers/GameManager.class
+net/dip/objects/guns/Pistol.class
+net/dip/utils/Constants.class
+net/dip/objects/shops/Door.class

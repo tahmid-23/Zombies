@@ -1,5 +1,6 @@
 package net.dip.objects.guns;
 
+import net.dip.objects.User;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 
@@ -53,7 +54,7 @@ public abstract class Gun implements IGun {
      * @return a List of Strings containing the lore of the Gun
      */
     public List<String> getLore() {
-        List<String> lore = new ArrayList<String>();
+        List<String> lore = new ArrayList<>();
 
         //TODO color
         Collections.addAll(lore, description);
@@ -70,11 +71,11 @@ public abstract class Gun implements IGun {
         return lore;
     }
 
-    public void shoot(){
+    public void shoot(User u){
         //TODO
     }
 
-    public void reload(){
+    public void reload(User u){
         //TODO
     }
 
