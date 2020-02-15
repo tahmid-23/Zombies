@@ -39,23 +39,13 @@ public class LinearGun extends Gun {
 
     }
 
-    private void decreaseAmmo() {
-        ammo--;
-        clipAmmo--;
-
-        if (clipAmmo == 0) {
-            reload();
-        }
-        // TODO: Auto-reload functionality
-    }
-
     private void sendShot(World world, Vector particleLocation, Vector particleDirection, Vector targetBlockVector) {
         LinearBeam beam = new LinearBeam(world, particle, particleLocation, particleDirection, targetBlockVector, maxHitEntities);
         beam.send();
     }
 
     private Vector getTargetBlockVector(Player player, Vector eyeLocation, Vector eyeDirection) {
-        Set<Material> materials = new HashSet();
+        Set<Material> materials = new HashSet<>();
 
         materials.add(Material.AIR);
         materials.add(Material.CAVE_AIR);
@@ -63,8 +53,6 @@ public class LinearGun extends Gun {
         // TODO: Add slab blocks
 
         BoundingBox targetedBlockBoundingBox = player.getTargetBlock(materials, gunRange).getBoundingBox();
-        Vector targetBlockVector = targetedBlockBoundingBox.rayTrace(eyeLocation, eyeDirection, gunRange).getHitPosition();
-
-        return targetBlockVector;
+        return targetedBlockBoundingBox.rayTrace(eyeLocation, eyeDirection, gunRange).getHitPosition();
     }
 }

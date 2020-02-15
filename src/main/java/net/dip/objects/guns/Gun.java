@@ -91,6 +91,10 @@ public abstract class Gun {
         return lore;
     }
 
+    private void decreaseAmmo() {
+        // TODO:
+    }
+
     public abstract void shoot(Player player);
 
     public abstract void reload();

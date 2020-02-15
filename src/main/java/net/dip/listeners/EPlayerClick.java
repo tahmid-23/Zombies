@@ -17,29 +17,21 @@ public class EPlayerClick implements Listener {
     @EventHandler
     public void onClick(PlayerInteractEvent e){
 
-        Material item = e.getItem().getType();
-        User u = Main.getUserManager().getUser(e.getPlayer());
+        if (e.getItem().getType() != null) {
+            Material item = e.getItem().getType();
+            User u = Main.getUserManager().getUser(e.getPlayer());
 
-        if(u.getStatus().equals(UserStatus.ALIVE)) {
+            if(u.getStatus().equals(UserStatus.ALIVE)) {
 
-            //placeholder TODO
-            boolean nearLocation = true;
-            if (nearLocation && getGameState().equals(GameState.INGAME)) {
-                //something like shop.purchase(u)
-            }
-
-            else if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
-                Main.getGuns().forEach(gun -> {
-                    if (gun.getItem().equals(item))
-                        gun.shoot(u);
-                });
-            }
-
-            else if (e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
-                Main.getGuns().forEach(gun -> {
-                    if (gun.getItem().equals(item))
-                        gun.reload(u);
-                });
+                //placeholder TODO
+                boolean nearLocation = true;
+                if (nearLocation && getGameState().equals(GameState.INGAME)) {
+                    //something like shop.purchase(u)
+                } else if (e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
+                    // TODO: Shoot
+                } else if (e.getAction().equals(Action.LEFT_CLICK_AIR) || e.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
+                    // TODO: Reload
+                }
             }
         }
     }
