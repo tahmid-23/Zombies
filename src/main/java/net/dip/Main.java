@@ -1,5 +1,6 @@
 package net.dip;
 
+import net.dip.commands.CommandTest;
 import net.dip.listeners.EPlayerClick;
 import net.dip.managers.GameManager;
 import net.dip.managers.UserManager;
@@ -10,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,13 +47,14 @@ public class Main extends JavaPlugin {
      * Registers all commands
      */
     private void registerCommands(){
-
+        getCommand("test").setExecutor(new CommandTest());
     }
 
     /**
      * Initialize all guns
      */
     private void registerGuns(){
+        guns = new ArrayList<>();
         guns.add(new Pistol());
     }
 

@@ -20,7 +20,8 @@ public class Pistol extends LinearGun {
     private static final double RELOAD_RATE = 1.5;
 
     public Pistol(){
-        super(GUN_NAME, GUN_OBJECT, GUN_PARTICLE, MAX_HIT_ENTITIES, GUN_RANGE, DAMAGE, AMMO, MAX_AMMO, CLIP_AMMO, MAX_CLIP_AMMO, FIRE_RATE, RELOAD_RATE);
+        super(GUN_NAME, GUN_OBJECT, GUN_PARTICLE, GUN_RANGE, DAMAGE, AMMO, MAX_AMMO, CLIP_AMMO, MAX_CLIP_AMMO, FIRE_RATE, RELOAD_RATE, MAX_HIT_ENTITIES);
+
         setDescription("This is your starter gun. You're",
                 "gonna want to upgrade this at",
                 "some point.");

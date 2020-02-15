@@ -1,5 +1,6 @@
 package net.dip.objects.guns;
 
+import net.dip.objects.User;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
@@ -73,7 +74,7 @@ public abstract class Gun {
      * @return a List of Strings containing the lore of the Gun
      */
     public List<String> getLore() {
-        List<String> lore = new ArrayList<String>();
+        List<String> lore = new ArrayList<>();
 
         //TODO color
         Collections.addAll(lore, description);
@@ -88,6 +89,9 @@ public abstract class Gun {
         lore.add("RIGHT-CLICK to shoot.");
 
         return lore;
+    }
+    private void decreaseAmmo() {
+        // TODO:
     }
 
     public abstract void shoot(Player player);

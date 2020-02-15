@@ -89,7 +89,38 @@ public class User {
         return perks;
     }
 
-    public void setPerks(){
-        //TODO
+    /**
+     * Checks if the User has a certain perk.
+     *
+     * @param perk the perk to check
+     * @return true if the User has the perk, otherwise false
+     */
+    public boolean hasPerk(PerkType perk){
+        for(PerkType p : getPerks()){
+            if(perk.equals(p)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Sets the perk on a designated slot.
+     *
+     * @param perk the perk to set
+     * @param slot the slot to set
+     */
+    public void setPerk(PerkType perk, int slot){
+        this.perks[slot] = perk;
+    }
+
+    /**
+     * Sets all slots to designated perks.
+     *
+     * @param perks the perks to set the slots to
+     */
+    public void setPerk(PerkType... perks){
+        if(perks.length == MAX_PERK_COUNT)
+            this.perks = perks;
     }
 }
